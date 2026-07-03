@@ -1,20 +1,28 @@
 const express = require("express")
 
 const app = express()
-const puerto = 3000
+const puerto = 3005
 
 app.use(express.text())
 
 app.get("/", (req, res) => {
-  res.send("Bienvenida comunidad. Este es un servidor Express para comunicación digital responsable.")
+  res.send("Bienvenida comunidad. Asi de facil es Express.")
 })
 
-app.get("/campania", (req, res) => {
-  res.send("Campaña: comunicación clara, convivencia digital y participación ciudadana.")
+app.get("/saludo", (req, res) => {
+  res.send("Saludos desde el servidor Express.")
+})
+
+app.get("/hola", (req, res) => {
+  res.send("que onda?")
 })
 
 app.get("/avisos", (req, res) => {
   res.send("Avisos comunitarios: verificar información, cuidar el lenguaje y evitar rumores.")
+})
+
+app.get("/campania", (req, res) => {
+  res.send("Campaña: comunicación clara, convivencia digital y participación ciudadana.")
 })
 
 app.post("/propuestas", (req, res) => {
@@ -31,10 +39,12 @@ app.use((req, res) => {
 })
 
 app.listen(puerto, () => {
-  console.log("Servidor Express funcionando en http://localhost:3000")
+  console.log("Servidor Express funcionando en http://localhost:" + puerto)
   console.log("Rutas disponibles:")
   console.log("GET  /")
   console.log("GET  /campania")
   console.log("GET  /avisos")
   console.log("POST /propuestas")
+  console.log("GET  /saludo")
+  console.log("GET  /hola")
 })
